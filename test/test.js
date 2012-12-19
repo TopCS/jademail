@@ -13,7 +13,7 @@ var transport = {
     }
 };
 var to = 'mister.gamer@gmail.com'
-  , from = 'test@foreignmailer.com'
+  , from = 'test@beonebee.it'
   , subject = 'SPAMM';
 
 var email = {
@@ -22,9 +22,10 @@ var email = {
   css: '../public/css/email/style.css'
 };
 
-mailer1('spam', {transport: transport, email: email}, function() {
+mailer1('spam', {transport: transport, email: email, to: to, from: from, subject: subject}, function() {
  // console.log('cachedEmails:', test.cachedEmails)
- mailer1('spam');
+ // mailer1('spam');
+ console.log('mail...sent?');
 });
 
 /**/
