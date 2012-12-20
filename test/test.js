@@ -1,8 +1,8 @@
-var mailer1 = require('./mailer');
+var mailer = require('../lib/jademail')('../examples/example_mails');
 var util = require('util');
 
 
-/**/
+/** /
 var transport = {
     host: 'mail.beonebee.it', // hostname
     secureConnection: false, // DONT use SSL
@@ -29,3 +29,4 @@ mailer1('spam', {transport: transport, email: email, to: to, from: from, subject
 });
 
 /**/
+
