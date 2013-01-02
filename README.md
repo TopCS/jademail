@@ -23,7 +23,7 @@ See [examples](./jademail/tree/master/examples)
 
 
 ###Methods
->Brief list of methods
+
 ```javascript
 // loads the entire collection of profiles found in the <path>
 Jademail.loadAllProfiles( String path, Function callback)
@@ -45,6 +45,7 @@ Jademail.setTransport( Object transportObj )
 ```
 
 ###Events
+
 ```javascript
 // @profileAdded - Triggered when a new profile is loaded, this gets triggered
 //                  multiple times during first istantiation (usually)
