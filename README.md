@@ -26,11 +26,11 @@ See [examples](./jademail/tree/master/examples)
 
 ```javascript
 // loads the entire collection of profiles found in the <path>
-Jademail.loadAllProfiles( String path, Function callback)
+Jademail.loadAllProfiles( String path, Function callback )
 
 // sends the mail profile specified by profileName, compiling with the provided locals
 // jadeLocals, callback are *optional*
-Jademail.Send( String profileName, Object emailHeaders, Object jadeLocals, Function callback)
+Jademail.Send( String profileName, Object emailHeaders, Object jadeLocals, Function callback )
 
 // returns an Object containing email profiles, if verbose is true,
 // returns additional informations regarding profiles
