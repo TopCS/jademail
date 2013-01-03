@@ -1,6 +1,6 @@
 {
   "name": "jademail"
-  , "version": "1.0.2"
+  , "version": "1.0.4"
   , "description": "Simple jade email sender, with caching."
   , "homepage" : "https://github.com/topcs/jademail"
   , "repository" : {
