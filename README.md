@@ -59,3 +59,17 @@ Jademail.on('profilesLoaded', function (String path){});
 // @emailSent - An email is sent, recipient(s) gets returned
 Jademail.on('emailSent', function (String recipients){});
 ```
+
+###Dependencies
+
+[Nodemailer](//github.com/andris9/Nodemailer) v0.3.37 or up
+
+Main library needed to send mail.
+
+[juice](//github.com/LearnBoost/juice) v0.0.7 or up
+
+Library for inline CSS compiling, looking for a better (mantained) one.
+
+[async](//github.com/caolan/async) v0.1.23 or up
+
+Useful for asynchronous functions in NodeJS
