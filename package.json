@@ -1,24 +1,24 @@
 {
   "name": "jademail"
-  , "version": "1.0.6"
+  , "version": "1.0.7"
+  , "private": true
   , "description": "Simple jade email sender, with caching."
   , "homepage" : "https://github.com/topcs/jademail"
   , "repository" : {
        "type" : "git"
        ,"url" : "git@github.com:topcs/jademail.git" 
   }
-  , "private": true
   , "keywords" : [ "jade", "mail", "cache" ]
   , "tags" : [ "jade", "mail", "cache" ]
   , "author" : "Valerio Coltrè <mister.gamer@gmail.com>"
   , "dependencies" : {
     "jade": "*",
-    "async": ">= 0.0.0",
-    "nodemailer": ">= 0.0.0",
-    "juice": ">= 0.0.0"
+    "async": "*",
+    "nodemailer": "*",
+    "juice": "*"
   }
   , "devDependencies" : {
-    "mocha": ">= 0.0.0"
+    "mocha": "*"
   }
   , "main": "index"
   , "engines": { "node": ">=0.8.x" }

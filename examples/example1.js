@@ -14,7 +14,7 @@ mailer.setTransport({
 
 var emailHeaders = {
   to: 'mister.gamer@gmail.com',
-  from: 'test@beonebee.it',
+  from: 'Troll Company ✔ <test@beonebee.it>',
   subject: 'forever troll'
 };
 
