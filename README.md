@@ -11,8 +11,7 @@ var jademail = require('jademail')('./folder/emails');
 ```
 >It automatically loads (and cache) all the profiles found in the subdirs, when done it calls the event 'profilesLoaded'
 
-------
-##Important note
+### PATH NOTE:
 ###### PATH in this project is relative to the root of your Express application, ex: 'views/email', _NOT_ '../../dir/folder'.
 ------
 
