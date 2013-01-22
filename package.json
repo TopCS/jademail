@@ -15,7 +15,7 @@
     "jade": "*",
     "async": "*",
     "nodemailer": "*",
-    "juice": "*"
+    "juice": "git+ssh://git@github.com:LearnBoost/juice.git#master"
   }
   , "devDependencies" : {
     "mocha": "*"
