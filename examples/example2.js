@@ -3,8 +3,9 @@ var util = require('util');
 
 
 /**
- * Example as html+css&text email, without variables
+ * Example as text-only email, with variables
  */
+
 
 /**/
 mailer.setTransport({
@@ -20,15 +21,19 @@ mailer.setTransport({
 var emailHeaders = {
   to: 'mister.gamer@gmail.com',
   from: 'Troll Company ✔ <test@beonebee.it>',
-  subject: 'forever troll'
+  subject: 'Never troll'
 };
 
+var jadeLocals = {
+  name: 'Mr. Trololol',
+  link: 'http://youtu.be/oavMtUWDBTM'
+};
 
 mailer.on('profilesLoaded', function (path) {
   mailer.profileCache['validation'].expiryDate = Date.now();
   setTimeout(function(){
     console.log(util.inspect(mailer.listProfiles(false), false, 3, true));
-    mailer.Send('validation', emailHeaders);
+    mailer.Send('recoverpwd', emailHeaders, jadeLocals);
   }, 10);
   // console.log(util.inspect(mailer.listProfiles(false), false, 4, true));
 });
