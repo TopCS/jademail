@@ -1,4 +1,4 @@
-var mailer = require('../')('./examples/example_mails');
+var mailer = require('../')('../examples/example_mails');
 var util = require('util');
 
 /**/
