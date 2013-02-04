@@ -15,9 +15,14 @@ var assert = require('assert')
     }
 }
   , dummyHeaders = {
-  to: 'your_email@here.com',
-  from: 'test@jademail.com',
-  subject: 'NPM Test @ Jademail'
+    to: 'your_email@here.com',
+    from: 'test@jademail.com',
+    subject: 'NPM Test @ Jademail'
+}
+// Local variables for recoverpwd profile
+  , dummyJadeLocals = {
+    name: 'Localsir',
+    link: 'http://sir.dot.com'
 }
   , Jademail
   , log = function(arg){console.log(util.inspect(arg, false, 3, true))};
@@ -36,7 +41,7 @@ describe('Basic:', function () {
     Jademail = require('../')('./examples/example_mails');
     Jademail.once('profilesLoaded', function (path) {
       assert.equal(path, fs.realpathSync('./examples/example_mails'), 'wrong path loaded || something went wrong');
-      done();
+      return done();
     });
   });
 
@@ -44,7 +49,7 @@ describe('Basic:', function () {
     Jademail.setTransport(dummyTransport);
     var transportobj = nodemailer.createTransport('SMTP', dummyTransport);
     assert.notDeepEqual(Jademail.transport, transportobj, 'Jademail transport is incorrect');
-    done();
+    return done();
   });
 
   it('should reload a specific profile, \'validation\' ', function (done) {
@@ -52,7 +57,10 @@ describe('Basic:', function () {
     Jademail.Send('validation', dummyHeaders);
     Jademail.once('profileAdded', function (profileName) {
       assert.equal(profileName, 'validation', 're-loaded wrong profile');
-      done();
+    });
+    Jademail.once('emailSent', function (nodemailObj, profile) {
+      assert.equal(nodemailObj.to, dummyHeaders.to, 'Somewhat the dummy recipient changed');
+      return done();
     });
   });
 });
@@ -61,13 +69,28 @@ describe('Method Calls:', function () {
   it('listProfiles', function (done) {
     var listobj = Jademail.listProfiles(false);
     if (listobj.validation) {
-      done();
+      return done();
     } else {
-      done(new Error('profile list is not the expected'));
+      return done(new Error('profile list is not the expected'));
     }
     // test!
   });
   it('reloadProfiles', function (done) {
     Jademail.reloadProfiles(done);
+  });
+});
+
+describe('Compilation Tests:', function() {
+  it('should compile correctly a text template', function (done) {
+    Jademail.Send('recoverpwd', dummyHeaders, dummyJadeLocals);
+    Jademail.once('emailSent', function (nodemailObj, profile) {
+      assert.equal(nodemailObj.to, dummyHeaders.to, 'Somewhat the dummy recipient changed');
+      // If the template compiled correctly, should be easy to find the variable inside it! ;-)
+      if ( !nodemailObj.text.match(RegExp(dummyJadeLocals.name)) )
+        return done(new Error('Text didn\'t compile correctly, name missing', nodemailObj.text));
+      if ( !nodemailObj.text.match(RegExp(dummyJadeLocals.link)) )
+        return done(new Error('Text didn\'t compile correctly, link missing', nodemailObj.text));
+      return done();
+    });
   });
 });

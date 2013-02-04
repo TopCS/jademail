@@ -21,6 +21,30 @@ jademail.on('profilesLoaded', function (path) {
 });
 ```
 
+### Text Templates
+Jade is nice enough to let us use text files, just we need to insert '|' before each line.
+
+Something like this:
+```text
+                                     .__          Date: #{today}
+  ____ ___  ________    _____ ______ |  |   ____  
+_/ __ \\  \/  /\__  \  /     \\____ \|  | _/ __ \ 
+\  ___/ >    <  / __ \|  Y Y  \  |_> >  |_\  ___/ 
+ \___  >__/\_ \(____  /__|_|  /   __/|____/\___  >
+     \/      \/     \/      \/|__|             \/ 
+```
+should become:
+```jade
+|                                     .__          Date: 8/7/2577
+|  ____ ___  ________    _____ ______ |  |   ____  
+|_/ __ \\  \/  /\__  \  /     \\____ \|  | _/ __ \ 
+|\  ___/ >    <  / __ \|  Y Y  \  |_> >  |_\  ___/ 
+| \___  >__/\_ \(____  /__|_|  /   __/|____/\___  >
+|     \/      \/     \/      \/|__|             \/ 
+```
+Variables compiling, of course, **works**.
+
+
 ##Usage Example
 See [examples](./jademail/tree/master/examples)
 
@@ -57,7 +81,7 @@ Jademail.on('profileAdded', function (String profileName){})
 Jademail.on('profilesLoaded', function (String path){});
 
 // @emailSent - An email is sent, recipient(s) gets returned
-Jademail.on('emailSent', function (String recipients){});
+Jademail.on('emailSent', function (Object nodemailerObj, String profileName, Date sendDate){});
 ```
 
 ###Dependencies

@@ -37,7 +37,7 @@ mailer.on('profileAdded', function (profileName) {
   console.log('profile \''+profileName+'\' added');
 });
 
-mailer.on('emailSent', function (to) {
-  console.log('email sent to \''+to);
+mailer.on('emailSent', function (nodemailerObj) {
+  console.log('email sent to \''+nodemailerObj.to);
 });
 /**/
