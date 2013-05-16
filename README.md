@@ -1,5 +1,4 @@
 #Jademail
-========
 
 Simple jade email sender, with caching.
 
@@ -46,7 +45,7 @@ Variables compiling, of course, **works**.
 
 
 ##Usage Example
-See [examples](./jademail/tree/master/examples)
+See [examples](/examples)
 
 ###Methods
 
